@@ -3,14 +3,21 @@ import "./App.css"
 
 const App = () => {
   const [length, setLength] = useState(4)
-
-
-  const checkboxData = [
+  const [checkboxData, setCheckboxData] = useState([
     {title: "Include uppercase letters", state: false},
     {title: "Include lowercase letters", state: false},
     {title: "Include numbers", state: false},
     {title: "Include symbols", state: false},
-  ]
+  ])
+
+  
+  
+  const handleCheckboxChange = ( index: number ) => {
+    const updatedCheckboxData = [...checkboxData]
+    updatedCheckboxData[index].state = !updatedCheckboxData[index].state
+
+    setCheckboxData(updatedCheckboxData)    
+  }
 
   return (
     <div className="container">
@@ -32,7 +39,7 @@ const App = () => {
           min="4"
           max="20"
           value={length}
-          onChange={(e) => setLength(e.target.value)}
+          onChange={(e) => setLength(Number(e.target.value))}
          />
       </div>
 
@@ -45,7 +52,7 @@ const App = () => {
               <input 
                 type="checkbox"
                 checked={item.state}
-                onChange={() => {}}
+                onChange={() => handleCheckboxChange(index)}
               />
               <label htmlFor=""> {item.title} </label>
             </div>
