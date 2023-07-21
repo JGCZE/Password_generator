@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./App.css"
+import usePasswordGenerators from "./hooks/use-password-generators"
 
 const App = () => {
   const [length, setLength] = useState(4)
@@ -10,8 +11,10 @@ const App = () => {
     {title: "Include symbols", state: false},
   ])
 
-  
-  
+
+  const { password, errorMessage, generatePassword } = usePasswordGenerators()
+ 
+
   const handleCheckboxChange = ( index: number ) => {
     const updatedCheckboxData = [...checkboxData]
     updatedCheckboxData[index].state = !updatedCheckboxData[index].state
@@ -21,11 +24,13 @@ const App = () => {
 
   return (
     <div className="container">
+
       {/* Password text and copy */}
-      <div className="header">
-        <div className="title"> Kh6y#Lh3& </div>
-        <button className="copyBtn" onClick={() => {}}> Copy </button>
-      </div>
+      {password && (
+        <div className="header">
+          <div className="title">{password}</div>
+          <button className="copyBtn" onClick={() => {}}> Copy </button>
+        </div> )}
 
       {/* Characters length */}
       <div className="charLength"> 
