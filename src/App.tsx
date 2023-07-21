@@ -2,9 +2,7 @@ import { useState } from "react"
 import "./App.css"
 
 const App = () => {
-  
-
-   
+  const [length, setLength] = useState(4)
 
 
   const checkboxData = [
@@ -33,7 +31,8 @@ const App = () => {
           type="range"
           min="4"
           max="20"
-         
+          value={length}
+          onChange={(e) => setLength(e.target.value)}
          />
       </div>
 
