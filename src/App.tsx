@@ -11,6 +11,7 @@ const App = () => {
     {title: "Include symbols", state: false},
   ])
 
+  const [copied, setCopied] = useState(false)
 
   const { password, errorMessage, generatePassword } = usePasswordGenerators()
  
@@ -22,6 +23,19 @@ const App = () => {
     setCheckboxData(updatedCheckboxData)    
   }
 
+  const handleCopy = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(password) 
+      setCopied(true)
+      setTimeout(() => {
+        setCopied(false)
+      }, 1500)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="container">
 
@@ -29,7 +43,7 @@ const App = () => {
       {password && (
         <div className="header">
           <div className="title">{password}</div>
-          <button className="copyBtn" onClick={() => {}}> Copy </button>
+          <button className="copyBtn" onClick={handleCopy}> {copied? "Copied !" : "Copy"} </button>
         </div> )}
 
       {/* Characters length */}
