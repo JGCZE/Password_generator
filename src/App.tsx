@@ -68,8 +68,14 @@ const App = () => {
 
 
       {/* Strength */}
+
+      {/* Error handling */}
+      {errorMessage && <div className="error"> {errorMessage} </div>}
+
+
+
       {/* Generate button */}
-      <button className="generateBtn" onClick={(first) => { second }}>Generate password</button>
+      <button className="generateBtn" onClick={() => generatePassword(checkboxData, length)}>Generate password</button>
 
     </div>
   )

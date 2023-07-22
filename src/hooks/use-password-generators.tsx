@@ -10,8 +10,12 @@ const usePasswordGenerators = () => {
 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         const selectedOption = checkboxData.filter((checkbox) => checkbox.state)
-        console.log(selectedOption);
         
+        if(selectedOption.length === 0) {
+            setErrorMessage("Please select at least one option")
+            setPassword("")
+            return
+        }
 
         selectedOption.forEach((option: {title: string}) => {
             switch (option.title) {
@@ -36,6 +40,9 @@ const usePasswordGenerators = () => {
             const randomIndex = Math.floor(Math.random() * charset.length)
             generatedPassword += charset[randomIndex]
         }
+
+        setPassword(generatedPassword)
+        setErrorMessage("")
         
     }
     
