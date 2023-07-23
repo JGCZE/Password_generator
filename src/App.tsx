@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./App.css"
 import usePasswordGenerators from "./hooks/use-password-generators"
 import StrengthChecker from "./components/StrengthChecker"
+import Button from "./components/Buttons"
 
 const App = () => {
   const [length, setLength] = useState(4)
@@ -44,7 +45,7 @@ const App = () => {
       {password && (
         <div className="header">
           <div className="title">{password}</div>
-          <button className="copyBtn" onClick={handleCopy}> {copied? "Copied !" : "Copy"} </button>
+          <Button text={copied? "Copied" : "Copy"} customClass="copyBtn" onClick={handleCopy} />
         </div> )}
 
       {/* Characters length */}
@@ -81,9 +82,7 @@ const App = () => {
       )}
       </div>
 
-
       {/* Strength */}
-
       <StrengthChecker password={password} />
 
       {/* Error handling */}
@@ -92,7 +91,11 @@ const App = () => {
 
 
       {/* Generate button */}
-      <button className="generateBtn" onClick={() => generatePassword(checkboxData, length)}>Generate password</button>
+      <Button 
+        customClass="generateBtn" 
+        text="Generate password" 
+        onClick={() => generatePassword(checkboxData, length)} 
+      />
 
     </div>
   )
