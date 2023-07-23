@@ -1,6 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+interface StrengthCheckerProps {
+    password: string;
+}
 
-const StrengthChecker = ({ password }) => {
+const StrengthChecker: React.FC<StrengthCheckerProps>= ({ password }) => {
     
   const gerPasswordStrength = () => {
     const passwordLength = password.length
