@@ -13,7 +13,6 @@ const Button: React.FC<ButtonProps> = ({ onClick, text, customClass }) => {
         >
             {text} 
         </button>
-
     )
  }
 

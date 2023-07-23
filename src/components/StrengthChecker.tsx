@@ -33,8 +33,6 @@ const StrengthChecker: React.FC<StrengthCheckerProps>= ({ password }) => {
         <div className="password-strength">
             Strength: <span style={{fontWeight: "bold"}}>{passwordStrength}</span>
         </div>
-        
-
     </>
   )
 }

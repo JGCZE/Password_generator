@@ -17,7 +17,6 @@ const App = () => {
   const [copied, setCopied] = useState(false)
 
   const { password, errorMessage, generatePassword } = usePasswordGenerators()
- 
 
   const handleCheckboxChange = ( index: number ) => {
     const updatedCheckboxData = [...checkboxData]
@@ -86,8 +85,6 @@ const App = () => {
 
       {/* Error handling */}
       {errorMessage && <div className="error"> {errorMessage} </div>}
-
-
 
       {/* Generate button */}
       <Button 

@@ -43,12 +43,9 @@ const usePasswordGenerators = () => {
 
         setPassword(generatedPassword)
         setErrorMessage("")
-        
     }
     
     return { password, errorMessage, generatePassword }
 }
-
-
 
 export default usePasswordGenerators
